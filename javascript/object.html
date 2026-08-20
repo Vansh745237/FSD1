@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p id="class"></p>
+    <script>
+      const student = {
+        name: "Vansh",
+        class: "CSE_DS_B",
+        Fees: 128600,
+      };
+      // document.getElementById("class").innerHTML=student;
+      document.write(JSON.stringify(student));
+      document.write("<br>");
+      document.write(student.name + "<br>");
+
+      for (let x in student) {
+        document.write(student[x]);
+      }
+      // var z= prompt("enter your age");
+    </script>
+  </body>
+</html>
