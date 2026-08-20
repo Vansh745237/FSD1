@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Online Shop</title>
+
+    <style>
+        .card {
+            width: 300px;
+            padding: 20px;
+            margin: 20px auto;
+            border: 2px solid black;
+            border-radius: 10px;
+            text-align: center;
+            font-family: Arial;
+        }
+
+        #shopCard {
+            background-color: lightblue;
+        }
+
+        #orderCard {
+            background-color: lightgreen;
+        }
+
+        #orderCard img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .menu {
+            text-align: left;
+            margin-left: 50px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Top Card -->
+    <div class="card" id="shopCard">
+        <h1>Online Shop</h1>
+
+        <div class="menu">
+            <p>☕ Tea - ₹10</p>
+            <p>☕ Coffee - ₹20</p>
+            <p>🍵 Green Tea - ₹30</p>
+        </div>
+    </div>
+
+    <script>
+
+        // Taking input from user
+        let product = prompt("Enter your product (Tea / Coffee / Green Tea)");
+        let quantity = Number(prompt("Enter your quantity in cups"));
+        let price = Number(prompt("Enter price for 1 cup"));
+
+        // Image variable
+        let image;
+
+        // Selecting image according to product
+        if (product.toLowerCase() == "tea") {
+            image = "https://img.jagranjosh.com/images/2025/10/13/article/image/tea-producing-states-1760360681335.webp";
+        }
+        else if (product.toLowerCase() == "coffee") {
+            image = "https://colombiancoffee.us/cdn/shop/articles/tips-to-recognize-good-quality-coffee-424970.png?v=1713377616";
+        }
+        else if (product.toLowerCase() == "green tea") {
+            image = "https://static.toiimg.com/thumb/imgsize-23456,msid-121996789,width-600,resizemode-4/765u6g.jpg";
+        }
+
+        // Calculate total amount
+        let totalAmount = quantity * price;
+
+        // Create new card
+        let orderCard = document.createElement("div");
+        orderCard.className = "card";
+        orderCard.id = "orderCard";
+
+        // Add content to card
+        orderCard.innerHTML = `
+            <h2>Your Order</h2>
+
+            <img src="${image}" alt="${product}">
+
+            <p>Product: ${product}</p>
+            <p>Quantity: ${quantity} cups</p>
+            <p>Price per cup: ₹${price}</p>
+
+            <h3>Your Total Amount is ₹${totalAmount}</h3>
+        `;
+
+        // Add card to webpage
+        document.body.appendChild(orderCard);
+
+    </script>
+
+</body>
+</html>
